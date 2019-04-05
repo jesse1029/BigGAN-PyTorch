@@ -20,7 +20,6 @@ import utils
 import losses
 
 
-
 def run(config):
   # Prepare state dict, which holds things like epoch # and itr #
   state_dict = {'itr': 0, 'epoch': 0, 'save_num': 0, 'save_best_num': 0,
@@ -104,6 +103,7 @@ def run(config):
     y = np.concatenate(y, 0)[:config['sample_num_npz']]    
     print('Images shape: %s, Labels shape: %s' % (x.shape, y.shape))
     npz_filename = '%s/%s/samples.npz' % (config['samples_root'], experiment_name)
+    npz_filename = "samples/data1.npz"
     print('Saving npz to %s...' % npz_filename)
     np.savez(npz_filename, **{'x' : x, 'y' : y})
   
